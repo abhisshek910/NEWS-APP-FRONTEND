@@ -21,14 +21,7 @@ function App() {
           <Route path="/" element={<Homepage />}></Route>
           <Route path="/news/:id" element={<ArticleDetailsPage />}></Route>
           <Route path="/admin" element={<AdminLogin />}></Route>
-          <Route
-            path="/admin/main"
-            element={
-              <AdminGuard>
-                <AdminLayout />
-              </AdminGuard>
-            }
-          >
+          <Route path="/admin/main" element={<AdminLayout />}>
             <Route path="posts/manage" element={<ManagePosts />} />
             <Route path="posts/manage/edit/:id" element={<EditPost />}></Route>
             <Route path="posts/add" element={<Addpost />}></Route>

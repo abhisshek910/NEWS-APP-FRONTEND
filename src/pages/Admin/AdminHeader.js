@@ -50,14 +50,14 @@ const AdminHeader = () => {
             <div className="mt-6 flex flex-col gap-y-[0.563rem]">
               <NavItem
                 title="Add Post"
-                link="/admin/posts/add"
+                link="/admin/main/posts/add"
                 name="Add Post"
                 activeNavName={activeNavName}
                 setActiveNavName={setActiveNavName}
               />
               <NavItem
                 title="Manage Post"
-                link="/admin/posts/manage"
+                link="/admin/main/posts/manage"
                 name="Manage Post"
                 activeNavName={activeNavName}
                 setActiveNavName={setActiveNavName}
