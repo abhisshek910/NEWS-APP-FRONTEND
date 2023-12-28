@@ -1,24 +1,42 @@
-import logo from './logo.svg';
-import './App.css';
+import Footer from "./components/Footer";
+import Header from "./components/Header";
+import "./App.css";
+import Homepage from "./pages/home/Homepage";
+import ArticleDetailsPage from "./pages/ArticleDetails/ArticleDetailsPage";
+import AdminLayout from "./pages/Admin/AdminLayout";
+import ManagePosts from "./pages/Admin/ManagePosts";
+import EditPost from "./pages/Admin/EditPost";
+import Addpost from "./pages/Admin/Addpost";
+import AdminLogin from "./pages/Admin/AdminLogin";
+import { AuthProvider } from "./pages/Admin/AuthContext";
+import AdminGuard from "./pages/Admin/AdminGuard";
+import { Route, Routes } from "react-router-dom";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <AuthProvider>
+        <Header />
+        <Routes>
+          <Route path="/" element={<Homepage />}></Route>
+          <Route path="/news/:id" element={<ArticleDetailsPage />}></Route>
+          <Route path="/admin" element={<AdminLogin />}></Route>
+          <Route
+            path="/admin/main"
+            element={
+              <AdminGuard>
+                <AdminLayout />
+              </AdminGuard>
+            }
+          >
+            <Route path="posts/manage" element={<ManagePosts />} />
+            <Route path="posts/manage/edit/:id" element={<EditPost />}></Route>
+            <Route path="posts/add" element={<Addpost />}></Route>
+          </Route>
+        </Routes>
+      </AuthProvider>
+      {/* <Footer /> */}
+    </>
   );
 }
 
