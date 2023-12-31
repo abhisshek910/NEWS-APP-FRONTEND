@@ -79,20 +79,20 @@ const ManagePosts = () => {
       <div className="w-full px-4 mx-auto">
         <div className="py-8">
           <div className="px-4 py-4 -mx-4 overflow-x-auto sm:-mx-8 sm:px-8">
-            <div className=" min-w-full overflow-hidden rounded-lg shadow">
+            <div className="inline-block min-w-full overflow-hidden rounded-lg shadow">
               <table className="min-w-full leading-normal">
                 <thead>
                   <tr>
                     <th
                       scope="col"
-                      className="lg:text-xl px-5 py-3 text-sm font-normal text-left text-gray-800 uppercase bg-white border-b border-gray-200"
+                      className=" px-5 py-3 text-sm font-normal text-left text-gray-800 uppercase bg-white border-b border-gray-200"
                     >
                       Title
                     </th>
 
                     <th
                       scope="col"
-                      className="lg:text-xl px-5 py-3 text-sm font-normal text-left text-gray-800 uppercase bg-white border-b border-gray-200"
+                      className=" px-5 py-3 text-sm font-normal text-left text-gray-800 uppercase bg-white border-b border-gray-200"
                     >
                       Created at
                     </th>

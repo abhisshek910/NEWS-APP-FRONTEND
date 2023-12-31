@@ -102,13 +102,11 @@ const ArticleDetailsPage = () => {
               className="rounded-xl w-full h-1/4"
             ></img>
 
-            <h1 className="text-3xl lg:text-6xl font-medium font-roboto mt-8 text-dark-hard md:text-[26px]">
+            <h1 className="text-xl  font-medium font-roboto mt-8 text-dark-hard md:text-[26px]">
               {post?.title}
             </h1>
             <div className="mt-4 text-dark-soft">
-              <p className="leading-7 text-xl lg:text-4xl">
-                {parse(post?.description)}
-              </p>
+              <p className="leading-7 text-base ">{parse(post?.description)}</p>
             </div>
           </article>
           <div>

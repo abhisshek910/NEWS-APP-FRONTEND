@@ -18,10 +18,10 @@ function ArticleCard({ className, post, latestProp }) {
       </Link>
       <div className="pt-5 pb-5 pl-3 md:pl-2 lg:pl-2">
         <Link to={`/news/${post._id}`}>
-          <h2 className="font-roboto font-bold text-4xl text-dark-soft md:text-2xl lg:text-[32px]">
+          <h2 className="font-roboto font-bold text-xl text-dark-soft md:text-2xl lg:text-[28px]">
             {post.title}
           </h2>
-          <p className="text-dark-light mt-3 text-3xl  md:text-lg lg:max-h-20 md:max-h-20 sm:max-h-5  overflow-hidden">
+          <p className="text-dark-light mt-3 text-sm  md:text-lg   overflow-hidden">
             {parse(post.description)}
           </p>
 

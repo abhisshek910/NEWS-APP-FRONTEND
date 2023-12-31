@@ -16,7 +16,7 @@ const AdminLogin = () => {
 
     if (loggedIn) {
       toast.success("Login Successful");
-      navigate("/admin/main");
+      navigate("/admin/main/posts/add");
     } else {
       toast.error("Invalid Login");
     }

@@ -13,6 +13,11 @@ import AdminGuard from "./pages/Admin/AdminGuard";
 import { Route, Routes } from "react-router-dom";
 
 function App() {
+  const shouldRenderFooter = () => {
+    // Check the current route to determine whether to render the footer
+    const currentPath = window.location.pathname;
+    return !currentPath.startsWith("/admin/main/posts/manage");
+  };
   return (
     <>
       <AuthProvider>
@@ -28,7 +33,7 @@ function App() {
           </Route>
         </Routes>
       </AuthProvider>
-      {/* <Footer /> */}
+      {shouldRenderFooter() && <Footer />}
     </>
   );
 }
