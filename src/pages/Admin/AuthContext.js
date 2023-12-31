@@ -10,15 +10,19 @@ export const AuthProvider = ({ children }) => {
     if (username === "admin" && password === "password") {
       const loggedInUser = { username: "admin" };
       setUser(true);
+      localStorage.setItem("isLoggedIn", "true");
       return loggedInUser;
     } else {
       setUser(false);
+      localStorage.setItem("isLoggedIn", "false");
       return null;
     }
   };
 
   const logout = () => {
     setUser(false);
+    localStorage.removeItem("isLoggedIn");
+    return true;
   };
 
   return (

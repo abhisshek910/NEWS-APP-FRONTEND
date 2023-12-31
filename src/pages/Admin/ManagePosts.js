@@ -163,7 +163,7 @@ const ManagePosts = () => {
                             Delete
                           </button>
                           <Link
-                            to={`/admin/posts/manage/edit/${post?._id}`}
+                            to={`/admin/main/posts/manage/edit/${post?._id}`}
                             className="text-green-600 hover:text-green-900 lg:text-2xl"
                           >
                             Edit
