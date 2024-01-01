@@ -145,6 +145,7 @@ const ArticleDetailsPage = () => {
             <meta property="og:title" content={post?.title} />
             <meta property="og:description" content={post?.subtitle} />
             <meta property="og:image" content={post?.imageUrl} />
+            <meta property="og:type" content="article" />
             <meta
               property="og:url"
               content={`https://www.dhhamakanews.in/news/${id}`}
