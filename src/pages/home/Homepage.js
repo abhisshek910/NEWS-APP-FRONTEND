@@ -7,6 +7,7 @@ export default function Homepage() {
   return (
     <div>
       <Helmet>
+        <meta property="description" content="these description"></meta>
         <meta property="og:title" content="Dhhamaka news" />
         <meta property="og:description" content="Latest News" />
 

@@ -142,6 +142,7 @@ const ArticleDetailsPage = () => {
         <>
           <Toaster />
           <Helmet>
+            <meta property="description" content="these description"></meta>
             <meta property="og:title" content={post?.title} />
             <meta property="og:description" content={post?.subtitle} />
             <meta
