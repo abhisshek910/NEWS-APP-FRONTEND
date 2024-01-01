@@ -9,6 +9,7 @@ import ErrorMessage from "./ErrorMessage";
 import SociaShare from "./SociaShare";
 import parse from "html-react-parser";
 import moment from "moment";
+import { Helmet } from "react-helmet";
 import toast, { Toast, Toaster } from "react-hot-toast";
 const ArticleDetailsPage = () => {
   const { id } = useParams();
@@ -140,6 +141,15 @@ const ArticleDetailsPage = () => {
       ) : (
         <>
           <Toaster />
+          <Helmet>
+            <meta property="og:title" content={post?.title} />
+            <meta property="og:description" content={post?.subtitle} />
+            <meta property="og:image" content={post?.imageUrl} />
+            <meta
+              property="og:url"
+              content={`https://www.dhhamakanews.in/news/${id}`}
+            />
+          </Helmet>
           <section className="container mx-auto max-w-8xl flex flex-col px-5 py-5 lg:flex-row lg:gap-x-5 lg:items-start">
             <article className="flex-1">
               <img
