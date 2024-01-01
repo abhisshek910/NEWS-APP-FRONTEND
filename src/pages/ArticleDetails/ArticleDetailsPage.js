@@ -144,12 +144,20 @@ const ArticleDetailsPage = () => {
           <Helmet>
             <meta property="og:title" content={post?.title} />
             <meta property="og:description" content={post?.subtitle} />
-            <meta property="og:image" content={post?.imageUrl} />
+            <meta
+              property="og:image"
+              content={`https://dhamakka-news.onrender.com${post?.imageUrl}`}
+            />
             <meta property="og:type" content="article" />
+            <meta property="og:locale" content="en_US"></meta>
+            <meta property="og:site_name" content="Dhhamaka News"></meta>
             <meta
               property="og:url"
               content={`https://www.dhhamakanews.in/news/${id}`}
             />
+            <meta property="og:image:width" content="789"></meta>
+            <meta property="og:image:height" content="503"></meta>
+            <meta property="og:image:type" content="image/jpeg"></meta>
           </Helmet>
           <section className="container mx-auto max-w-8xl flex flex-col px-5 py-5 lg:flex-row lg:gap-x-5 lg:items-start">
             <article className="flex-1">
