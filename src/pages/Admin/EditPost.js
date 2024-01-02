@@ -16,7 +16,7 @@ export default function EditPost() {
   const [redirect, setRedirect] = useState(false);
 
   useEffect(() => {
-    fetch("https://news-app-backend-theta.vercel.app/" + id).then(
+    fetch("https://news-app-backend-theta.vercel.app/api/post/" + id).then(
       (response) => {
         response.json().then((postInfo) => {
           setTitle(postInfo.title);
