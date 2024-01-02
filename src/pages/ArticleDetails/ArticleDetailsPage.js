@@ -145,10 +145,7 @@ const ArticleDetailsPage = () => {
             <meta property="description" content="these description"></meta>
             <meta property="og:title" content={post?.title} />
             <meta property="og:description" content={post?.subtitle} />
-            <meta
-              property="og:image"
-              content={`https://news-app-backend-theta.vercel.app${post?.imageUrl}`}
-            />
+            <meta property="og:image" content={post?.imageUrl} />
             <meta property="og:type" content="article" />
             <meta property="og:locale" content="en_US"></meta>
             <meta property="og:site_name" content="Dhhamaka News"></meta>
@@ -163,7 +160,7 @@ const ArticleDetailsPage = () => {
           <section className="container mx-auto max-w-8xl flex flex-col px-5 py-5 lg:flex-row lg:gap-x-5 lg:items-start">
             <article className="flex-1">
               <img
-                src={`https://news-app-backend-theta.vercel.app${post?.imageUrl}`}
+                src={post?.imageUrl}
                 className="rounded-xl w-full h-1/4"
               ></img>
 
