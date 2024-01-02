@@ -15,7 +15,7 @@ const ManagePosts = () => {
   const getAllPosts = async () => {
     try {
       const { data, headers } = await axios.get(
-        "https://dhamakka-news.onrender.com/api/all-post"
+        "https://news-app-backend-theta.vercel.app/api/all-post"
       );
       return data;
     } catch (error) {
@@ -45,7 +45,7 @@ const ManagePosts = () => {
   const deletePost = async ({ id }) => {
     try {
       const { data } = await axios.delete(
-        `https://dhamakka-news.onrender.com/api/post/${id}`
+        `https://news-app-backend-theta.vercel.app/api/post/${id}`
       );
       return data;
     } catch (error) {
@@ -123,7 +123,7 @@ const ManagePosts = () => {
                           <div className="flex items-center">
                             <div className="flex-shrink-0">
                               <img
-                                src={`https://dhamakka-news.onrender.com${post.imageUrl}`}
+                                src={post.imageUrl}
                                 alt={post.title}
                                 className="mx-auto object-cover rounded-lg w-10 aspect-square"
                               />

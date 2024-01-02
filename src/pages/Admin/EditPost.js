@@ -16,7 +16,7 @@ export default function EditPost() {
   const [redirect, setRedirect] = useState(false);
 
   useEffect(() => {
-    fetch("https://dhamakka-news.onrender.com/api/post/" + id).then(
+    fetch("https://news-app-backend-theta.vercel.app/" + id).then(
       (response) => {
         response.json().then((postInfo) => {
           setTitle(postInfo.title);
@@ -30,7 +30,7 @@ export default function EditPost() {
   const updatePost = async ({ updatedData }) => {
     try {
       const { data } = await axios.put(
-        "https://dhamakka-news.onrender.com/api/update-post",
+        "https://news-app-backend-theta.vercel.app/api/update-post",
         updatedData
       );
       return data;

@@ -11,7 +11,7 @@ function ArticleCard({ className, post, latestProp }) {
       <Link to={`/news/${post._id}`}>
         <div className="aspect-[3/2]">
           <img
-            src={`https://dhamakka-news.onrender.com${post.imageUrl}`}
+            src={`https://news-app-backend-theta.vercel.app${post.imageUrl}`}
             className=" object-cover object-center  w-full h-full"
           ></img>
         </div>

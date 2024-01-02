@@ -14,7 +14,7 @@ function Latestpost({ classname, posts = [] }) {
           <div className="flex space-x-3 flex-nowrap items-center">
             <img
               className="aspect-square object-cover rounded-lg w-1/5"
-              src={`https://dhamakka-news.onrender.com${item?.imageUrl}`}
+              src={item?.imageUrl}
             ></img>
             <div className="text-sm font-roboto text-dark-hard font-medium">
               <h3 className=" text-sm font-roboto text-dark-hard font-medium md:text-base lg:text-lg">

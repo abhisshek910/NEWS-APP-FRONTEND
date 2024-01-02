@@ -23,7 +23,7 @@ export default function Addpost() {
     data.set("file", files[0]);
     ev.preventDefault();
     const response = await fetch(
-      "https://dhamakka-news.onrender.com/api/add-post",
+      "https://news-app-backend-theta.vercel.app/api/add-post",
       {
         method: "POST",
         body: data,
@@ -31,6 +31,8 @@ export default function Addpost() {
     );
     if (response.ok) {
       toast.success("Post Added Successfully");
+    } else {
+      toast.error("Post Not Added");
     }
   }
 

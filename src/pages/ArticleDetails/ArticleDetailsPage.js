@@ -19,7 +19,7 @@ const ArticleDetailsPage = () => {
   const getAllPosts = async () => {
     try {
       const { data, headers } = await axios.get(
-        "https://dhamakka-news.onrender.com/api/all-post"
+        "https://news-app-backend-theta.vercel.app/api/all-post"
       );
       return { data, headers };
     } catch (error) {
@@ -32,7 +32,7 @@ const ArticleDetailsPage = () => {
   const getSinglePost = async ({ id }) => {
     try {
       const { data } = await axios.get(
-        `https://dhamakka-news.onrender.com/api/post/${id}`
+        `https://news-app-backend-theta.vercel.app/api/post/${id}`
       );
       return data;
     } catch (error) {
@@ -105,7 +105,7 @@ const ArticleDetailsPage = () => {
 
     try {
       const response = await fetch(
-        `https://dhamakka-news.onrender.com/api/post/add-comment/${postId}`,
+        `https://news-app-backend-theta.vercel.app/api/post/add-comment/${postId}`,
         {
           method: "POST",
           headers: {
@@ -147,7 +147,7 @@ const ArticleDetailsPage = () => {
             <meta property="og:description" content={post?.subtitle} />
             <meta
               property="og:image"
-              content={`https://dhamakka-news.onrender.com${post?.imageUrl}`}
+              content={`https://news-app-backend-theta.vercel.app${post?.imageUrl}`}
             />
             <meta property="og:type" content="article" />
             <meta property="og:locale" content="en_US"></meta>
@@ -163,7 +163,7 @@ const ArticleDetailsPage = () => {
           <section className="container mx-auto max-w-8xl flex flex-col px-5 py-5 lg:flex-row lg:gap-x-5 lg:items-start">
             <article className="flex-1">
               <img
-                src={`https://dhamakka-news.onrender.com${post?.imageUrl}`}
+                src={`https://news-app-backend-theta.vercel.app${post?.imageUrl}`}
                 className="rounded-xl w-full h-1/4"
               ></img>
 
