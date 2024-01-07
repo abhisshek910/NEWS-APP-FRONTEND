@@ -6,7 +6,7 @@ function ArticleCard({ className, post, latestProp }) {
 
   return (
     <div
-      className={`rounded-xl overflow-hidden shadow-[rgba(7,_65,_210,_0,1)_0px_9px_30px] ${className}`}
+      className={`rounded-xl  overflow-hidden shadow-[rgba(7,_65,_210,_0,1)_0px_9px_30px]  ${className}`}
     >
       <Link to={`/news/${post._id}`}>
         <div className="aspect-[3/2]">
@@ -16,12 +16,15 @@ function ArticleCard({ className, post, latestProp }) {
           ></img>
         </div>
       </Link>
-      <div className="pt-5 pb-5 pl-3 md:pl-2 lg:pl-2">
+      <div className="pt-5 pb-5 pl-3 md:pl-2 lg:pl-2 ">
         <Link to={`/news/${post._id}`}>
           <h2 className="font-roboto font-bold text-xl text-dark-soft md:text-2xl lg:text-[28px]">
             {post.title}
           </h2>
-          <p className="text-dark-light mt-3 text-sm  md:text-lg   overflow-hidden">
+          <p className="h-14 text-dark-soft mt-5 text-sm  md:text-lg   overflow-hidden">
+            {parse(post.subtitle)}
+          </p>
+          <p className="h-20  text-dark-light mt-4 text-sm  md:text-lg   overflow-hidden ">
             {parse(post.description)}
           </p>
 

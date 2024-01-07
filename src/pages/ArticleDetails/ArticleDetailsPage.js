@@ -10,7 +10,7 @@ import SociaShare from "./SociaShare";
 import parse from "html-react-parser";
 import moment from "moment";
 import { Helmet } from "react-helmet";
-
+import userImage from "../../assets/user.png";
 import toast, { Toast, Toaster } from "react-hot-toast";
 const ArticleDetailsPage = () => {
   const { id } = useParams();
@@ -186,6 +186,14 @@ const ArticleDetailsPage = () => {
               <h1 className="text-xl  font-medium font-roboto mt-8 text-dark-hard md:text-[26px]">
                 {post?.title}
               </h1>
+              <div className="mt-2 text-gray-600">
+                <p className="text-base">
+                  संपादक-दीपक अग्रवाल <br></br>सहसंपादक-सत्यम बाजपाई
+                </p>
+              </div>
+              <div className="mt-4 text-sky-800">
+                <p className="text-lg">{post.subtitle}</p>
+              </div>
               <div className="mt-4 text-dark-soft">
                 <p className="leading-7 text-base ">
                   {parse(post?.description)}
@@ -208,6 +216,20 @@ const ArticleDetailsPage = () => {
               </div>
             </div>
           </section>
+          <div className="flex justify-center flex-nowrap items-center  mt-6 mb-6">
+            <div className="flex items-center gap-x-2 md:gap-x-2.5 ">
+              <img
+                src={userImage}
+                alt="post profile"
+                className=" w-24 h-24 rounded-full"
+              />
+              <div className="flex flex-col">
+                <h4 className="font-bold italic text-dark-soft text-sm md:text-base">
+                  संपादक-दीपक अग्रवाल <br></br>सहसंपादक-सत्यम बाजपाई
+                </h4>
+              </div>
+            </div>
+          </div>
           <div className="bg-white  rounded-lg p-8 pb-12 mb-8">
             <h3 className="text-2xl mb-8 font-semibold border-b pb-4 pl-2">
               Leave a Reply
