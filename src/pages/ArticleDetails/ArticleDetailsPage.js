@@ -9,7 +9,7 @@ import ErrorMessage from "./ErrorMessage";
 import SociaShare from "./SociaShare";
 import parse from "html-react-parser";
 import moment from "moment";
-import { Helmet } from "react-helmet";
+import { Helmet } from "react-helmet-async";
 import userImage from "../../assets/user.png";
 import toast, { Toast, Toaster } from "react-hot-toast";
 const ArticleDetailsPage = () => {
@@ -142,7 +142,7 @@ const ArticleDetailsPage = () => {
       ) : (
         <>
           <Toaster />
-          {/* <Helmet>
+          <Helmet>
             <meta property="description" content="these description"></meta>
             <meta property="og:title" content={post?.title} />
             <meta property="og:description" content={post?.subtitle} />
@@ -157,7 +157,7 @@ const ArticleDetailsPage = () => {
             <meta property="og:image:width" content="789"></meta>
             <meta property="og:image:height" content="503"></meta>
             <meta property="og:image:type" content="image/jpeg"></meta>
-          </Helmet> */}
+          </Helmet>
 
           {/* <Head>
             <meta property="description" content="these description"></meta>
