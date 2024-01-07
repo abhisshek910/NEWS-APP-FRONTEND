@@ -142,7 +142,7 @@ const ArticleDetailsPage = () => {
       ) : (
         <>
           <Toaster />
-          <Helmet>
+          {/* <Helmet>
             <meta property="description" content="these description"></meta>
             <meta property="og:title" content={post?.title} />
             <meta property="og:description" content={post?.subtitle} />
@@ -157,7 +157,7 @@ const ArticleDetailsPage = () => {
             <meta property="og:image:width" content="789"></meta>
             <meta property="og:image:height" content="503"></meta>
             <meta property="og:image:type" content="image/jpeg"></meta>
-          </Helmet>
+          </Helmet> */}
 
           {/* <Head>
             <meta property="description" content="these description"></meta>
