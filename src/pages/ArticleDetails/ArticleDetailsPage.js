@@ -10,6 +10,7 @@ import SociaShare from "./SociaShare";
 import parse from "html-react-parser";
 import moment from "moment";
 import { Helmet } from "react-helmet";
+
 import toast, { Toast, Toaster } from "react-hot-toast";
 const ArticleDetailsPage = () => {
   const { id } = useParams();
@@ -141,7 +142,7 @@ const ArticleDetailsPage = () => {
       ) : (
         <>
           <Toaster />
-          <Helmet>
+          {/* <Helmet>
             <meta property="description" content="these description"></meta>
             <meta property="og:title" content={post?.title} />
             <meta property="og:description" content={post?.subtitle} />
@@ -156,7 +157,25 @@ const ArticleDetailsPage = () => {
             <meta property="og:image:width" content="789"></meta>
             <meta property="og:image:height" content="503"></meta>
             <meta property="og:image:type" content="image/jpeg"></meta>
-          </Helmet>
+          </Helmet> */}
+
+          {/* <Head>
+            <meta property="description" content="these description"></meta>
+            <meta property="og:title" content={post?.title} />
+            <meta property="og:description" content={post?.subtitle} />
+            <meta property="og:image" content={post?.imageUrl} />
+            <meta property="og:type" content="article" />
+            <meta property="og:locale" content="en_US"></meta>
+            <meta property="og:site_name" content="Dhhamaka News"></meta>
+            <meta
+              property="og:url"
+              content={`https://www.dhhamakanews.in/news/${id}`}
+            />
+            <meta property="og:image:width" content="789"></meta>
+            <meta property="og:image:height" content="503"></meta>
+            <meta property="og:image:type" content="image/jpeg"></meta>
+          </Head> */}
+
           <section className="container mx-auto max-w-8xl flex flex-col px-5 py-5 lg:flex-row lg:gap-x-5 lg:items-start">
             <article className="flex-1">
               <img

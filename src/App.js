@@ -11,7 +11,7 @@ import AdminLogin from "./pages/Admin/AdminLogin";
 import { AuthProvider } from "./pages/Admin/AuthContext";
 import AdminGuard from "./pages/Admin/AdminGuard";
 import { Route, Routes } from "react-router-dom";
-
+import { Analytics } from "@vercel/analytics/react";
 function App() {
   const shouldRenderFooter = () => {
     // Check the current route to determine whether to render the footer
@@ -22,6 +22,7 @@ function App() {
     <>
       <AuthProvider>
         <Header />
+        <Analytics />
         <Routes>
           <Route path="/" element={<Homepage />}></Route>
           <Route path="/news/:id" element={<ArticleDetailsPage />}></Route>
