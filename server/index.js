@@ -1,12 +1,12 @@
 const express = require("express");
 const app = express();
-const port = process.env.PORT || 5000;
+const port = process.env.PORT || 3001;
 const path = require("path");
 const fs = require("fs");
 
 app.get("/", function (request, response) {
   console.log("Home page visited!");
-  const filePath = path.resolve(__dirname, "./build", "index.html");
+  const filePath = path.resolve(__dirname, "../build", "index.html");
 
   // read in the index.html file
   fs.readFile(filePath, "utf8", function (err, data) {
