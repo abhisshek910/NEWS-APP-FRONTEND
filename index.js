@@ -20,7 +20,7 @@ db.once("open", () => {
   console.log("Connected to MongoDB");
 });
 
-app.use(express.static(path.join(__dirname, "./build")));
+app.use(express.static(path.resolve(__dirname, "client", "build")));
 
 app.get("/news/:id", async function (req, res) {
   try {
@@ -30,7 +30,7 @@ app.get("/news/:id", async function (req, res) {
     if (!blog) {
       return res.status(404).json({ error: "Blog post not found" });
     }
-    const filePath = path.resolve(__dirname, "./build", "index.html");
+    const filePath = path.resolve(__dirname, "client", "build", "index.html");
     fs.readFile(filePath, "utf8", function (err, data) {
       if (err) {
         return console.log(err);
@@ -47,13 +47,13 @@ app.get("/news/:id", async function (req, res) {
 });
 
 app.get("*", function (request, response) {
-  const filePath = path.resolve(__dirname, "./build", "index.html");
+  const filePath = path.resolve(__dirname, "client", "build", "index.html");
   response.sendFile(filePath);
 });
 
 app.get("/", function (req, res) {
   console.log(__dirname);
-  res.sendFile(path.join(__dirname, "./build", "index.html"));
+  res.sendFile(path.join(__dirname, "client", "build", "index.html"));
 });
 
 app.listen(9000);
