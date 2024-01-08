@@ -51,9 +51,4 @@ app.get("*", function (request, response) {
   response.sendFile(filePath);
 });
 
-app.get("/", function (req, res) {
-  console.log(__dirname);
-  res.sendFile(path.join(__dirname, "client", "build", "index.html"));
-});
-
 app.listen(9000);
