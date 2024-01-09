@@ -9,7 +9,7 @@ import ErrorMessage from "./ErrorMessage";
 import SociaShare from "./SociaShare";
 import parse from "html-react-parser";
 import moment from "moment";
-import { Helmet } from "react-helmet-async";
+import VideoPlayer from "../../components/VideoPlyaer";
 import userImage from "../../assets/user.png";
 import toast, { Toast, Toaster } from "react-hot-toast";
 const ArticleDetailsPage = () => {
@@ -157,6 +157,12 @@ const ArticleDetailsPage = () => {
               <div className="mt-4 text-sky-800">
                 <p className="text-lg">{post.subtitle}</p>
               </div>
+
+              {post?.videoUrl && (
+                <div className="mt-10">
+                  <VideoPlayer videoUrl={post?.videoUrl}></VideoPlayer>
+                </div>
+              )}
               <div className="mt-4 text-dark-soft">
                 <p className="leading-7 text-base ">
                   {parse(post?.description)}

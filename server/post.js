@@ -5,6 +5,8 @@ const postSchema = new mongoose.Schema({
   subtitle: String,
   description: String,
   imageUrl: String,
+
+  videoUrl: String,
   tags: [String],
   createdAt: {
     type: Date,

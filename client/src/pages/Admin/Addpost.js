@@ -12,6 +12,7 @@ export default function Addpost() {
   const [summary, setSummary] = useState("");
   const [content, setContent] = useState("");
   const [files, setFiles] = useState("");
+  const [videos, setvideos] = useState("");
 
   async function createNewPost(ev) {
     ev.preventDefault();
@@ -20,7 +21,8 @@ export default function Addpost() {
     data.set("title", title);
     data.set("subtitle", summary);
     data.set("description", content);
-    data.set("file", files[0]);
+    data.set("image", files[0]);
+    data.set("Video", videos[0]);
     ev.preventDefault();
     const response = await fetch(
       "https://news-app-backend-theta.vercel.app/api/add-post",
@@ -33,6 +35,7 @@ export default function Addpost() {
       toast.success("Post Added Successfully");
     } else {
       toast.error("Post Not Added");
+      console.log(response);
     }
   }
 
@@ -54,9 +57,18 @@ export default function Addpost() {
           onChange={(ev) => setSummary(ev.target.value)}
           className="button-add"
         />
+        <label>Upload Image</label>
         <input
           type="file"
+          accept="image/*"
           onChange={(ev) => setFiles(ev.target.files)}
+          className="button-add"
+        />
+        <label>Upload Video</label>
+        <input
+          type="file"
+          accept="video/*"
+          onChange={(ev) => setvideos(ev.target.files)}
           className="button-add"
         />
         <Editor value={content} onChange={setContent} />
