@@ -11,6 +11,8 @@ mongoose.connect(
   {
     useNewUrlParser: true,
     useUnifiedTopology: true,
+    connectTimeoutMS: 30000, // 30 seconds
+    socketTimeoutMS: 30000,
   }
 );
 const db = mongoose.connection;
