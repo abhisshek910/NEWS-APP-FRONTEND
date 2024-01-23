@@ -25,7 +25,7 @@ export default function Addpost() {
     data.set("Video", videos[0]);
     ev.preventDefault();
     const response = await fetch(
-      "https://news-app-backend-theta.vercel.app/api/add-post",
+      "https://dhhamaknews.uc.r.appspot.com/api/add-post",
       {
         method: "POST",
         body: data,

@@ -15,7 +15,7 @@ const ManagePosts = () => {
   const getAllPosts = async () => {
     try {
       const { data, headers } = await axios.get(
-        "https://news-app-backend-theta.vercel.app/api/all-post"
+        "https://dhhamaknews.uc.r.appspot.com/api/all-post"
       );
       return data;
     } catch (error) {
@@ -45,7 +45,7 @@ const ManagePosts = () => {
   const deletePost = async ({ id }) => {
     try {
       const { data } = await axios.delete(
-        `https://news-app-backend-theta.vercel.app/api/post/${id}`
+        `https://dhhamaknews.uc.r.appspot.com/api/post/${id}`
       );
       return data;
     } catch (error) {

@@ -12,6 +12,7 @@ import moment from "moment";
 import VideoPlayer from "../../components/VideoPlyaer";
 import userImage from "../../assets/user.png";
 import toast, { Toast, Toaster } from "react-hot-toast";
+import { ReactionBarSelector } from "@charkour/react-reactions";
 const ArticleDetailsPage = () => {
   const { id } = useParams();
 
@@ -20,7 +21,7 @@ const ArticleDetailsPage = () => {
   const getAllPosts = async () => {
     try {
       const { data, headers } = await axios.get(
-        "https://news-app-backend-theta.vercel.app/api/all-post"
+        "https://dhhamaknews.uc.r.appspot.com/api/all-post"
       );
       return { data, headers };
     } catch (error) {
@@ -33,7 +34,7 @@ const ArticleDetailsPage = () => {
   const getSinglePost = async ({ id }) => {
     try {
       const { data } = await axios.get(
-        `https://news-app-backend-theta.vercel.app/api/post/${id}`
+        `https://dhhamaknews.uc.r.appspot.com/api/post/${id}`
       );
       return data;
     } catch (error) {
@@ -106,7 +107,7 @@ const ArticleDetailsPage = () => {
 
     try {
       const response = await fetch(
-        `https://news-app-backend-theta.vercel.app/api/post/add-comment/${postId}`,
+        `https://dhhamaknews.uc.r.appspot.com/api/post/add-comment/${postId}`,
         {
           method: "POST",
           headers: {
@@ -199,6 +200,7 @@ const ArticleDetailsPage = () => {
               </div>
             </div>
           </div>
+
           <div className="bg-white  rounded-lg p-8 pb-12 mb-8">
             <h3 className="text-2xl mb-8 font-semibold border-b pb-4 pl-2">
               Leave a Reply
@@ -244,6 +246,7 @@ const ArticleDetailsPage = () => {
               </button>
             </div>
           </div>
+
           {post?.comments.length > 0 && (
             <div className="bg-white  rounded-lg p-8 pb-12 mb-8">
               <h3 className="text-xl mb-8 font-semibold border-b pb-4">

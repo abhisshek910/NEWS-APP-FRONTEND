@@ -11,7 +11,7 @@ function ArticleCard({ className, post, latestProp }) {
       <Link to={`/news/${post._id}`}>
         <div className="aspect-[3/2]">
           <img
-            src={post.imageUrl}
+            src={post?.imageUrl}
             className=" object-cover object-center  w-full h-full"
           ></img>
         </div>

@@ -19,7 +19,7 @@ const Articles = () => {
   const getAllPosts = async () => {
     try {
       const { data, headers } = await axios.get(
-        "https://news-app-backend-theta.vercel.app/api/all-post"
+        "https://dhhamaknews.uc.r.appspot.com/api/all-post"
       );
       return { data, headers };
     } catch (error) {
