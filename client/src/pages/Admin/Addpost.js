@@ -6,6 +6,7 @@ import parse from "html-react-parser";
 import toast, { Toaster, Toast } from "react-hot-toast";
 import Editor from "./Editor";
 import "./somecss.css";
+import { ClipLoader } from "react-spinners";
 
 export default function Addpost() {
   const [title, setTitle] = useState("");
@@ -13,9 +14,11 @@ export default function Addpost() {
   const [content, setContent] = useState("");
   const [files, setFiles] = useState("");
   const [videos, setvideos] = useState("");
+  const [loading, setLoading] = useState(false);
 
   async function createNewPost(ev) {
     ev.preventDefault();
+    setLoading(true);
     const data = new FormData();
 
     data.set("title", title);
@@ -23,19 +26,26 @@ export default function Addpost() {
     data.set("description", content);
     data.set("image", files[0]);
     data.set("Video", videos[0]);
-    ev.preventDefault();
-    const response = await fetch(
-      "https://news-app-backend-theta.vercel.app/api/add-post",
-      {
-        method: "POST",
-        body: data,
+
+    try {
+      const response = await fetch(
+        "https://news-app-backend-theta.vercel.app/api/add-post",
+        {
+          method: "POST",
+          body: data,
+        }
+      );
+      if (response.ok) {
+        toast.success("Post Added Successfully");
+      } else {
+        toast.error("Post Not Added");
+        console.log(response);
       }
-    );
-    if (response.ok) {
-      toast.success("Post Added Successfully");
-    } else {
-      toast.error("Post Not Added");
-      console.log(response);
+    } catch (error) {
+      console.error("Error creating post:", error);
+      toast.error("An error occurred while creating the post");
+    } finally {
+      setLoading(false); // Set loading to false when the request is complete
     }
   }
 
@@ -72,8 +82,16 @@ export default function Addpost() {
           className="button-add"
         />
         <Editor value={content} onChange={setContent} />
-        <button style={{ marginTop: "5px" }} className="button2">
-          Create post
+        <button
+          style={{ marginTop: "5px" }}
+          className="button2"
+          disabled={loading}
+        >
+          {loading ? (
+            <ClipLoader color={"#ffffff"} loading={true} size={15} />
+          ) : (
+            "Create post"
+          )}
         </button>
       </form>
     </>

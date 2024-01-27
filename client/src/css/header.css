@@ -1,9 +1,25 @@
 @import url("https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100&display=swap");
 
 
+.carousel-image {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+.carousel-image2 {
+  margin-top: 10%;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+.carousel-div{
 
-
-
+}
+.carousel-container {
+  max-width: 70%; /* Set a maximum width for the container */
+  margin: 4% auto;
+  
+}
 a {
   text-decoration: none;
 }
