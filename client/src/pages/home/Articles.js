@@ -19,7 +19,7 @@ const Articles = () => {
   const getAllPosts = async () => {
     try {
       const { data, headers } = await axios.get(
-        "https://dhhamaknews.uc.r.appspot.com/api/all-post"
+        "https://dhhamaknews.uc.r.appspot.com/api/all-postsss"
       );
       return { data, headers };
     } catch (error) {
