@@ -5,8 +5,6 @@ const fs = require("fs");
 const Blog = require("./server/post");
 const mongoose = require("mongoose");
 
-const mongoose = require("mongoose");
-
 const uri =
   "mongodb+srv://abhishekagr00008:Abhishek@cluster0.owotj8v.mongodb.net/?retryWrites=true&w=majority";
 const maxRetries = 3;
