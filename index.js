@@ -17,7 +17,6 @@ function connectWithRetry() {
       useUnifiedTopology: true,
       connectTimeoutMS: 30000,
       socketTimeoutMS: 30000,
-      poolSize: 10, // Adjust the pool size based on your requirements
     })
     .then(() => {
       console.log("Connected to MongoDB Atlas");
