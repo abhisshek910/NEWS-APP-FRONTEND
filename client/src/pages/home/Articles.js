@@ -8,22 +8,22 @@ import axios from "axios";
 import ArticleCardSkeleton from "../ArticleDetails/ArticleCardSkeleton";
 import ErrorMessage from "../ArticleDetails/ErrorMessage";
 const Articles = () => {
-  const [lastPostId, setLastPostId] = useState(null);
+  const [page, setPage] = useState(1);
   const [visiblePosts, setVisiblePosts] = useState(6);
   const [loadingMore, setLoadingMore] = useState(false);
   const [showLoading, setShowLoading] = useState(false);
+  const [posts, setPosts] = useState([]);
 
   const loadMoreArticles = () => {
+    setPage((prevPage) => prevPage + 1);
     setShowLoading(true);
     setVisiblePosts((prevVisiblePosts) => prevVisiblePosts + 6);
   };
 
-  const getAllPosts = async () => {
+  const getAllPosts = async (page) => {
     try {
       const { data, headers } = await axios.get(
-        `https://dhhamaknews.uc.r.appspot.com/api/all-postse?limit=${visiblePosts}&lastPostId=${
-          lastPostId || ""
-        }`
+        `https://dhhamaknews.uc.r.appspot.com/api/all-postsese?page=${page}`
       );
       return { data, headers };
     } catch (error) {
@@ -34,12 +34,13 @@ const Articles = () => {
   };
 
   const { data, isLoading, isError, refetch } = useQuery({
-    queryFn: () => getAllPosts(),
+    queryFn: () => getAllPosts(page),
     onSuccess: (newData) => {
-      if (newData.data && newData.data.length > 0) {
-        setLastPostId(newData.data[newData.data.length - 1]._id);
-      }
+      // if (newData.data && newData.data.length > 0) {
+      //   setLastPostId(newData.data[newData.data.length - 1]._id);
+      // }
       setShowLoading(false);
+      setPosts((prevPosts) => [...prevPosts, ...newData.data]);
     },
   });
   useEffect(() => {
@@ -65,7 +66,7 @@ const Articles = () => {
         ) : isError ? (
           <ErrorMessage />
         ) : (
-          data?.data.map((post) => (
+          posts.map((post) => (
             <ArticleCard
               key={post._id}
               className="w-full md:w-[calc(50%-20px)] lg:w-[calc(33.33%-21px)]"
@@ -75,16 +76,21 @@ const Articles = () => {
         )}
       </div>
 
-      {data && data.data.length >= visiblePosts && !isLoading && !isError && (
-        <button
-          className="mx-auto flex items-center gap-x-2 font-bold text-primary border-2 border-primary px-6 py-3 rounded-lg"
-          onClick={loadMoreArticles}
-          disabled={loadingMore}
-        >
-          {loadingMore ? "Loading..." : "More Articles"}
-          <FaArrowRight className="w-3 h-3"></FaArrowRight>
-        </button>
-      )}
+      {data &&
+        data.data.length > 0 &&
+        !isLoading &&
+        !isError &&
+        !showLoading && (
+          <button
+            className="mx-auto flex items-center gap-x-2 font-bold text-primary border-2 border-primary px-6 py-3 rounded-lg"
+            onClick={loadMoreArticles}
+            disabled={loadingMore}
+          >
+            {loadingMore ? "Loading..." : "More Articles"}
+            <FaArrowRight className="w-3 h-3"></FaArrowRight>
+          </button>
+        )}
+
       {showLoading && (
         <div className="text-center my-4">Loading more posts...</div>
       )}

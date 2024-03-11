@@ -5,16 +5,45 @@ const fs = require("fs");
 const Blog = require("./server/post");
 const mongoose = require("mongoose");
 
-console.log(process.env.MONGODB_URI);
-mongoose.connect(
-  "mongodb+srv://abhishekagr00008:Abhishek@cluster0.owotj8v.mongodb.net/?retryWrites=true&w=majority",
-  {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-    connectTimeoutMS: 30000, // 30 seconds
-    socketTimeoutMS: 30000,
-  }
-);
+const mongoose = require("mongoose");
+
+const uri =
+  "mongodb+srv://abhishekagr00008:Abhishek@cluster0.owotj8v.mongodb.net/?retryWrites=true&w=majority";
+const maxRetries = 3;
+let currentRetry = 0;
+
+function connectWithRetry() {
+  mongoose
+    .connect(uri, {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+      connectTimeoutMS: 30000,
+      socketTimeoutMS: 30000,
+      poolSize: 10, // Adjust the pool size based on your requirements
+    })
+    .then(() => {
+      console.log("Connected to MongoDB Atlas");
+    })
+    .catch((error) => {
+      console.error("MongoDB connection error:", error);
+      if (currentRetry < maxRetries) {
+        currentRetry++;
+        console.log(
+          `Retrying connection, attempt ${currentRetry} of ${maxRetries}`
+        );
+        // Add a delay before retrying (adjust as needed)
+        setTimeout(connectWithRetry, 5000); // 5 seconds delay
+      } else {
+        console.error(
+          "Max retries reached. Unable to connect to MongoDB Atlas."
+        );
+      }
+    });
+}
+
+// Initial connection attempt
+connectWithRetry();
+
 const db = mongoose.connection;
 
 db.on("error", console.error.bind(console, "MongoDB connection error:"));

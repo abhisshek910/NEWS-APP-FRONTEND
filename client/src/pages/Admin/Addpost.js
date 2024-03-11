@@ -43,7 +43,7 @@ export default function Addpost() {
       }
     } catch (error) {
       console.error("Error creating post:", error);
-      toast.error("An error occurred while creating the post");
+      toast.error("An error occurred while creating the post", error);
     } finally {
       setLoading(false); // Set loading to false when the request is complete
     }
