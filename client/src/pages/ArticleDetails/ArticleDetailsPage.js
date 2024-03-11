@@ -99,7 +99,7 @@ const ArticleDetailsPage = () => {
   const handleCommentSubmit = async () => {
     setError(false);
     const { name, email, comment } = formData;
-    if (!name || !email || !comment) {
+    if (!name || !comment) {
       setError(true);
       return;
     }
@@ -222,14 +222,6 @@ const ArticleDetailsPage = () => {
                 className="py-2 px-4 outline-none w-full rounded-lg focus:ring-2 focus:ring-gray-200 bg-gray-100 text-gray-700"
                 placeholder="Name"
                 name="name"
-              />
-              <input
-                type="email"
-                value={formData.email}
-                onChange={onInputChange}
-                className="py-2 px-4 outline-none w-full rounded-lg focus:ring-2 focus:ring-gray-200 bg-gray-100 text-gray-700"
-                placeholder="Email"
-                name="email"
               />
             </div>
 

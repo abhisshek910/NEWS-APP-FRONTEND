@@ -1,6 +1,7 @@
 import React from "react";
 import parse from "html-react-parser";
 import { Link } from "react-router-dom";
+import logo from "../assets/logo.png";
 function ArticleCard({ className, post, latestProp }) {
   console.log(latestProp);
 
@@ -11,8 +12,9 @@ function ArticleCard({ className, post, latestProp }) {
       <Link to={`/news/${post._id}`}>
         <div className="aspect-[3/2]">
           <img
-            src={post?.imageUrl}
+            src={post?.imageUrl || logo}
             className=" object-cover object-center  w-full h-full"
+            alt={logo}
           ></img>
         </div>
       </Link>

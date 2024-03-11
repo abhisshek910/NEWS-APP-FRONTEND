@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-
+import logo from "../../assets/logo.png";
 function Latestpost({ classname, posts = [] }) {
   return (
     <div
@@ -14,7 +14,8 @@ function Latestpost({ classname, posts = [] }) {
           <div className="flex space-x-3 flex-nowrap items-center">
             <img
               className="aspect-square object-cover rounded-lg w-1/5"
-              src={item?.imageUrl}
+              src={item?.imageUrl || logo}
+              alt={logo}
             ></img>
             <div className="text-sm font-roboto text-dark-hard font-medium">
               <h3 className=" text-sm font-roboto text-dark-hard font-medium md:text-base lg:text-lg">
