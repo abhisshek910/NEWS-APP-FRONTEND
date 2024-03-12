@@ -16,7 +16,7 @@ export default function EditPost() {
   const [redirect, setRedirect] = useState(false);
 
   useEffect(() => {
-    fetch("https://dhhamaknews.uc.r.appspot.com//api/post/" + id).then(
+    fetch("https://dhhamaknews.uc.r.appspot.com/api/post/" + id).then(
       (response) => {
         response.json().then((postInfo) => {
           setTitle(postInfo.title);
