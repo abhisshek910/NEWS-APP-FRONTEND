@@ -4,6 +4,7 @@ import logo from "../assets/logo.png";
 import img1 from "../assets/img1.jpeg";
 import img2 from "../assets/img2.jpeg";
 import img3 from "../assets/img3.jpeg";
+import ReactPlayer from "react-player";
 
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { Carousel } from "react-responsive-carousel";
@@ -44,10 +45,15 @@ function Header() {
           <div>
             <img src={img2} className="carousel-image" />
           </div>
-          <div>
-            <img src={img3} className="carousel-image" />
-          </div>
         </Carousel>
+      </div>
+      <div className="vdo-pl">
+        <ReactPlayer
+          url="/vdo.mp4"
+          controls // Optional: Show player controls
+          width="60%" // Optional: Set player width
+          height="auto" // Optional: Set player height
+        />
       </div>
     </>
   );
