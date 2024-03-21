@@ -47,13 +47,8 @@ function Header() {
           </div>
         </Carousel>
       </div>
-      <div className="vdo-pl">
-        <ReactPlayer
-          url="/vdo.mp4"
-          controls // Optional: Show player controls
-          width="60%" // Optional: Set player width
-          height="auto" // Optional: Set player height
-        />
+      <div>
+        <img src={img3} className="img-add" />
       </div>
     </>
   );

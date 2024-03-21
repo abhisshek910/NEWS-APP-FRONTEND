@@ -170,6 +170,8 @@ const ArticleDetailsPage = () => {
                 </p>
               </div>
             </article>
+
+            <div classname="ad-div" style={{ height: "300px" }}></div>
             <div>
               <Latestpost
                 classname="mt-8 lg:mt-0 lg:max-w-xs"
@@ -257,6 +259,8 @@ const ArticleDetailsPage = () => {
               ))}
             </div>
           )}
+
+          <div classname="ad-div" style={{ height: "300px" }}></div>
         </>
       )}
     </>

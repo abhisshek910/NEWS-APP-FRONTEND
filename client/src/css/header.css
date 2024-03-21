@@ -35,7 +35,10 @@ li {
 /* 
  
 
+
 /* navbar style start  */
+
+
 
 .main-nav {
   width: 100%;
@@ -52,7 +55,9 @@ li {
   justify-content: center;
 }
 
-
+.img-add{
+  padding: 18%;
+}
 
 /* ----------- Grid part ends ----------------- */
 
