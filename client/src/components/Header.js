@@ -4,6 +4,7 @@ import logo from "../assets/logo.png";
 import img1 from "../assets/img1.jpeg";
 import img2 from "../assets/img2.jpeg";
 import img3 from "../assets/img3.jpeg";
+import img5 from "../assets/img5.jpeg";
 import ReactPlayer from "react-player";
 
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
@@ -47,8 +48,21 @@ function Header() {
           </div>
         </Carousel>
       </div>
-      <div>
-        <img src={img3} className="img-add" />
+      <div className="carousel-container">
+        <Carousel
+          autoPlay={true}
+          infiniteLoop={true}
+          showArrows={false}
+          showThumbs={false}
+          className="carousel-div"
+        >
+          <div>
+            <img src={img3} className="img-add" />
+          </div>
+          <div>
+            <img src={img5} className="img-add" />
+          </div>
+        </Carousel>
       </div>
     </>
   );
