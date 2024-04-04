@@ -6,11 +6,12 @@ import Pagination from "./Pagination";
 import { useMutation } from "react-query";
 import { Link } from "react-router-dom";
 import toast, { Toaster } from "react-hot-toast";
+import { useEffect } from "react";
 const ManagePosts = () => {
   const [data, setData] = useState([]); // Array to store your entries
   const [currentPage, setCurrentPage] = useState(1); // Current page number
-
-  const itemsPerPage = 4;
+  const [page, setPage] = useState(1);
+  const itemsPerPage = 6;
 
   const getAllPosts = async () => {
     try {
@@ -25,21 +26,38 @@ const ManagePosts = () => {
     }
   };
 
-  const { dataa, isLoading, isError, isFetching } = useQuery({
-    queryFn: () => getAllPosts(),
+  const getAllPostss = async (page) => {
+    try {
+      const { data, headers } = await axios.get(
+        `https://dhhamaknews.uc.r.appspot.com/api/all-postsese?page=${page}`
+      );
+      return { data, headers };
+    } catch (error) {
+      if (error.response && error.response.data.message)
+        throw new Error(error.response.data.message);
+      throw new Error(error.message);
+    }
+  };
+
+  const { dataa, isLoading, isError, isFetching, refetch } = useQuery({
+    queryFn: () => getAllPostss(page),
     onSuccess: (dataa) => {
-      setData(dataa);
+      setData(dataa.data);
       console.log(data);
     },
   });
+  useEffect(() => {
+    refetch();
+  }, [page, refetch]);
 
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
-  const currentItems = data.slice(indexOfFirstItem, indexOfLastItem);
+  // const currentItems = data.slice(indexOfFirstItem, indexOfLastItem);
 
   // Logic to handle page change
   const handlePageChange = (pageNumber) => {
     setCurrentPage(pageNumber);
+    setPage(pageNumber);
   };
 
   const deletePost = async ({ id }) => {
@@ -117,7 +135,7 @@ const ManagePosts = () => {
                       </td>
                     </tr>
                   ) : (
-                    currentItems?.map((post) => (
+                    data?.map((post) => (
                       <tr>
                         <td className="px-3 py-5 text-sm bg-white border-b border-gray-200">
                           <div className="flex items-center">
@@ -178,7 +196,7 @@ const ManagePosts = () => {
                 onPageChange={handlePageChange}
                 currentPage={currentPage}
                 siblingCount={1}
-                totalPageCount={Math.ceil(data.length / itemsPerPage)}
+                totalPageCount={10000}
               />
             </div>
           </div>
