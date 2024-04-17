@@ -13,6 +13,7 @@ import VideoPlayer from "../../components/VideoPlyaer";
 import userImage from "../../assets/user.png";
 import toast, { Toast, Toaster } from "react-hot-toast";
 import { ReactionBarSelector } from "@charkour/react-reactions";
+import apiUrl from "../../constant/const";
 const ArticleDetailsPage = () => {
   const { id } = useParams();
 
@@ -20,9 +21,7 @@ const ArticleDetailsPage = () => {
 
   const getAllPosts = async () => {
     try {
-      const { data, headers } = await axios.get(
-        "https://dhhamaknews.uc.r.appspot.com/api/all-postsss"
-      );
+      const { data, headers } = await axios.get(apiUrl + "/api/all-postsss");
       return { data, headers };
     } catch (error) {
       if (error.response && error.response.data.message)
@@ -34,7 +33,7 @@ const ArticleDetailsPage = () => {
   const getSinglePost = async ({ id }) => {
     try {
       const { data } = await axios.get(
-        `https://dhhamaknews.uc.r.appspot.com/api/post/${id}`
+        `https://news-app-backend-theta.vercel.app/api/post/${id}`
       );
       return data;
     } catch (error) {
@@ -106,16 +105,13 @@ const ArticleDetailsPage = () => {
     const postId = id;
 
     try {
-      const response = await fetch(
-        `https://dhhamaknews.uc.r.appspot.com/api/post/add-comment/${postId}`,
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(formData),
-        }
-      );
+      const response = await fetch(`${apiUrl}/api/post/add-comment/${postId}`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
 
       if (response.ok) {
         toast.success("Comment Added Sucssfully");

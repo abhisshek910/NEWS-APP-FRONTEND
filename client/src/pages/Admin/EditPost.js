@@ -5,6 +5,7 @@ import "react-toastify/dist/ReactToastify.css";
 import { useMutation, useQueryClient } from "react-query";
 import axios from "axios";
 import Editor from "./Editor";
+import apiUrl from "../../constant/const";
 
 export default function EditPost() {
   const { id } = useParams();
@@ -16,21 +17,19 @@ export default function EditPost() {
   const [redirect, setRedirect] = useState(false);
 
   useEffect(() => {
-    fetch("https://dhhamaknews.uc.r.appspot.com/api/post/" + id).then(
-      (response) => {
-        response.json().then((postInfo) => {
-          setTitle(postInfo.title);
-          setContent(postInfo.description);
-          setSummary(postInfo.subtitle);
-        });
-      }
-    );
+    fetch(apiUrl + "/api/post/" + id).then((response) => {
+      response.json().then((postInfo) => {
+        setTitle(postInfo.title);
+        setContent(postInfo.description);
+        setSummary(postInfo.subtitle);
+      });
+    });
   }, []);
 
   const updatePost = async ({ updatedData }) => {
     try {
       const { data } = await axios.put(
-        "https://dhhamaknews.uc.r.appspot.com/api/update-post",
+        apiUrl + "/api/update-post",
         updatedData
       );
       return data;

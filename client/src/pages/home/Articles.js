@@ -7,6 +7,7 @@ import { useQuery } from "react-query";
 import axios from "axios";
 import ArticleCardSkeleton from "../ArticleDetails/ArticleCardSkeleton";
 import ErrorMessage from "../ArticleDetails/ErrorMessage";
+import apiUrl from "../../constant/const";
 const Articles = () => {
   const [page, setPage] = useState(1);
   const [visiblePosts, setVisiblePosts] = useState(6);
@@ -23,7 +24,7 @@ const Articles = () => {
   const getAllPosts = async (page) => {
     try {
       const { data, headers } = await axios.get(
-        `https://dhhamaknews.uc.r.appspot.com/api/all-postsese?page=${page}`
+        `${apiUrl}/api/all-postsese?page=${page}`
       );
       return { data, headers };
     } catch (error) {

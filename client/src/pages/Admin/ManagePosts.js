@@ -7,6 +7,7 @@ import { useMutation } from "react-query";
 import { Link } from "react-router-dom";
 import toast, { Toaster } from "react-hot-toast";
 import { useEffect } from "react";
+import apiUrl from "../../constant/const";
 const ManagePosts = () => {
   const [data, setData] = useState([]); // Array to store your entries
   const [currentPage, setCurrentPage] = useState(1); // Current page number
@@ -15,9 +16,7 @@ const ManagePosts = () => {
 
   const getAllPosts = async () => {
     try {
-      const { data, headers } = await axios.get(
-        "https://dhhamaknews.uc.r.appspot.com/api/all-post"
-      );
+      const { data, headers } = await axios.get(apiUrl + "/api/all-post");
       return data;
     } catch (error) {
       if (error.response && error.response.data.message)
@@ -29,7 +28,7 @@ const ManagePosts = () => {
   const getAllPostss = async (page) => {
     try {
       const { data, headers } = await axios.get(
-        `https://dhhamaknews.uc.r.appspot.com/api/all-postsese?page=${page}`
+        `${apiUrl}/api/all-postsese?page=${page}`
       );
       return { data, headers };
     } catch (error) {
@@ -62,9 +61,7 @@ const ManagePosts = () => {
 
   const deletePost = async ({ id }) => {
     try {
-      const { data } = await axios.delete(
-        `https://dhhamaknews.uc.r.appspot.com/api/post/${id}`
-      );
+      const { data } = await axios.delete(`${apiUrl}/api/post/${id}`);
       return data;
     } catch (error) {
       if (error.response && error.response.data.message)
