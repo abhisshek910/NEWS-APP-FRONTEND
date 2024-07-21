@@ -48,22 +48,6 @@ function Header() {
           </div>
         </Carousel>
       </div>
-      <div className="carousel-container">
-        <Carousel
-          autoPlay={true}
-          infiniteLoop={true}
-          showArrows={false}
-          showThumbs={false}
-          className="carousel-div"
-        >
-          <div>
-            <img src={img3} className="img-add" />
-          </div>
-          <div>
-            <img src={img5} className="img-add" />
-          </div>
-        </Carousel>
-      </div>
     </>
   );
 }
