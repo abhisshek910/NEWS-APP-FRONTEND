@@ -3,7 +3,6 @@ import "../css/header.css";
 import logo from "../assets/logo.png";
 import img1 from "../assets/img1.jpeg";
 import img2 from "../assets/img2.jpeg";
-import img3 from "../assets/img3.jpeg";
 import img5 from "../assets/img5.jpeg";
 import ReactPlayer from "react-player";
 import img7 from "../assets/7.jpeg";
