@@ -6,7 +6,7 @@ import img2 from "../assets/img2.jpeg";
 import img3 from "../assets/img3.jpeg";
 import img5 from "../assets/img5.jpeg";
 import ReactPlayer from "react-player";
-
+import img7 from "../assets/7.jpeg";
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { Carousel } from "react-responsive-carousel";
 function Header() {
@@ -40,6 +40,9 @@ function Header() {
           showThumbs={false}
           className="carousel-div"
         >
+          <div>
+            <img src={img7} className="carousel-image" />
+          </div>
           <div>
             <img src={img1} className="carousel-image2" />
           </div>
