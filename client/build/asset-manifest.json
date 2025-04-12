@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.ae194800.css",
-    "main.js": "/static/js/main.e4fa2288.js",
+    "main.js": "/static/js/main.e9d4f383.js",
     "reactPlayerYouTube.js": "/static/js/reactPlayerYouTube.4dac5dab.chunk.js",
     "reactPlayerSoundCloud.js": "/static/js/reactPlayerSoundCloud.a01954f7.chunk.js",
     "reactPlayerVimeo.js": "/static/js/reactPlayerVimeo.045968f1.chunk.js",
@@ -16,16 +16,14 @@
     "reactPlayerFilePlayer.js": "/static/js/reactPlayerFilePlayer.839b441b.chunk.js",
     "reactPlayerPreview.js": "/static/js/reactPlayerPreview.bf60afb5.chunk.js",
     "static/js/787.9e9f4ffd.chunk.js": "/static/js/787.9e9f4ffd.chunk.js",
-    "static/media/img5.jpeg": "/static/media/img5.b65b458b8c45a364783e.jpeg",
-    "static/media/img1.jpeg": "/static/media/img1.34f10f82da3667dfa8b2.jpeg",
-    "static/media/img2.jpeg": "/static/media/img2.6d04971ea4179b992746.jpeg",
+    "static/media/img1.jpeg": "/static/media/img1.a9ba63c660ddc93da3b3.jpeg",
+    "static/media/img2.jpeg": "/static/media/img2.91f9a82e8e7408149b44.jpeg",
     "static/media/HeroImage.svg": "/static/media/HeroImage.814c358a3cc89d83d85e96c0617dc979.svg",
     "static/media/logo.png": "/static/media/logo.a8aa614a6e89e29a6db9.png",
-    "static/media/7.jpeg": "/static/media/7.de7e7e71fdf98e78cd1f.jpeg",
     "static/media/user.png": "/static/media/user.0d14c6999b4a5c8e86a7.png",
     "index.html": "/index.html",
     "main.ae194800.css.map": "/static/css/main.ae194800.css.map",
-    "main.e4fa2288.js.map": "/static/js/main.e4fa2288.js.map",
+    "main.e9d4f383.js.map": "/static/js/main.e9d4f383.js.map",
     "reactPlayerYouTube.4dac5dab.chunk.js.map": "/static/js/reactPlayerYouTube.4dac5dab.chunk.js.map",
     "reactPlayerSoundCloud.a01954f7.chunk.js.map": "/static/js/reactPlayerSoundCloud.a01954f7.chunk.js.map",
     "reactPlayerVimeo.045968f1.chunk.js.map": "/static/js/reactPlayerVimeo.045968f1.chunk.js.map",
@@ -43,6 +41,6 @@
   },
   "entrypoints": [
     "static/css/main.ae194800.css",
-    "static/js/main.e4fa2288.js"
+    "static/js/main.e9d4f383.js"
   ]
 }
